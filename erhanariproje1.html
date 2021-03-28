@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Erhan ARI Proje-1</title>
+  </head>
+<body>
+
+<script>
+
+ var girdi = prompt("1 ile 9 karakter uzunluğunda bir kelime giriniz: ");
+ 
+ var uzunluk = girdi.length;
+ 
+ if(uzunluk < 1 || uzunluk > 9)
+ {
+	 alert("Lütfen 1 ile 9 karakter uzunluğunda bir kelime giriniz: ");
+ } 
+ else
+ {
+	var letters = /^[a-zA-ZwığüşöçĞÜŞÖÇİ]+$/;
+	
+	if(!girdi.match(letters))
+	{
+		alert("Geçersiz karakter girdiniz!");
+	}
+	else
+	{
+		document.write("<div style=\"font-family: 'arial', sans-serif; margin-left: auto;  margin-right: auto; padding-left: 10px; padding-right: 10px;\">");
+		document.write("<table><tr style=\"background-color: #95A5A6; font-size: 14px; letter-spacing: 0.03em;border-radius: 3px; padding: 25px 30px; display: flex; justify-content: space-between;	 margin-bottom: 25px;\">");
+		document.write("<th>Girdi : " + girdi + "</th></tr>");
+		
+		for(var i = 1; i <= uzunluk; i++) 
+		{ 
+			document.write("<tr style=\"background-color: #ffffff; box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);border-radius: 3px; padding: 25px 30px; display: flex; justify-content: space-between;	 margin-bottom: 25px;\">");
+			var randomtext = "";
+			
+			for(var j = 0; j < i; j++ )
+			{
+				var random = Math.floor(Math.random() * uzunluk);
+				randomtext += girdi[random];
+			}
+			document.write("<td>" + i +" karakterli : 	" + randomtext +"</td>");
+			document.write("</tr>");			
+		}
+
+		document.write("</table>");		
+		document.write("</div>");		
+	}
+ }
+
+</script>
+
+</body>
+</html>
+
